@@ -37,7 +37,7 @@ class DoubleEndedLinkedList {
     }
 
     public boolean isEmpty() {
-        return  firstLink == null;
+        return firstLink == null;
     }
 
     public void insertInLastPosition(String homeOwnerName, int houseNumber) {
@@ -50,31 +50,30 @@ class DoubleEndedLinkedList {
         }
     }
 
-    public boolean insertAfterKey(String homeOwnerName,int houseNumber,int key){
-        Neighbor theNewLink =  new Neighbor(homeOwnerName,houseNumber);
+    public boolean insertAfterKey(String homeOwnerName, int houseNumber, int key) {
+        Neighbor theNewLink = new Neighbor(homeOwnerName, houseNumber);
 
-        Neighbor current =  firstLink;
+        Neighbor current = firstLink;
 
-        while(current.houseNumber != key){
+        while (current.houseNumber != key) {
             current = current.next;
-            if(current == null){
+            if (current == null) {
                 return false;
             }
         }
 
-        if(current == lastLink){
-            theNewLink.next= null;
-            lastLink= theNewLink;
-        }else{
-            theNewLink.next =  current.next;
+        if (current == lastLink) {
+            theNewLink.next = null;
+            lastLink = theNewLink;
+        } else {
+            theNewLink.next = current.next;
             current.next.previous = theNewLink;
         }
+        theNewLink.previous = current;
+        current.next = theNewLink;
 
         return true;
     }
-
-
-
 
     public static void main(String[] args) {
 
