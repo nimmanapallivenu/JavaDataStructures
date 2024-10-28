@@ -1,5 +1,13 @@
 package programs;
-
+/*
+Print all permutations of given input
+abc
+acb
+bac
+bca
+cab
+cba
+ */
 public class PermutationsString {
 
     public static void main(String[] args) {
